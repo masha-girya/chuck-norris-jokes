@@ -1,0 +1,36 @@
+.Category {
+  width: 170px;
+  height: 57px;
+
+  background: #FFFFFF;
+
+  border-radius: 20px;
+  border: none;
+
+  font-family: 'Raleway';
+  font-weight: bold;
+  font-size: inherit;
+  line-height: 19px;
+  color: $font-color;
+
+  -webkit-box-shadow: 0px 8px 25px 4px rgba(66,46,212,0.05);
+  box-shadow: 0px 8px 25px 4px rgba(66,46,212,0.05);
+
+  transition: color 0.5s;
+  transition: background-color 0.3s;
+
+  cursor: pointer;
+
+  &:hover {
+    background-color: $main-color;
+    color: #FFFFFF;
+  }
+
+  @include onTablet {
+    width: 300px;
+    @include paddings;
+
+    -webkit-box-shadow: 0px 8px 10px 4px rgba(66,46,212,0.05);
+    box-shadow: 0px 8px 10px 4px rgba(66,46,212,0.05);
+  }
+}
