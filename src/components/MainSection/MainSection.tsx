@@ -1,6 +1,10 @@
 /* eslint-disable no-console */
 import React, { useEffect, useState } from 'react';
-import { getCategories, getRandomJoke, getRandomJokeByCategory } from '../../api/fetchData';
+import {
+  getCategories,
+  getRandomJoke,
+  getRandomJokeByCategory,
+} from '../../api/fetchData';
 import { Category } from '../Category';
 import { JokeLoader } from '../Loader';
 import { JokeSection } from '../JokeSection';
@@ -19,7 +23,7 @@ export const MainSection: React.FC = () => {
     loadCategories();
   }, []);
 
-  const handleClick = async(category: string) => {
+  const handleClick = async (category: string) => {
     try {
       setIsLoading(true);
       const data = await getRandomJokeByCategory(category);
@@ -31,7 +35,7 @@ export const MainSection: React.FC = () => {
     }
   };
 
-  const handleRandomClick = async() => {
+  const handleRandomClick = async () => {
     try {
       setIsLoading(true);
       const data = await getRandomJoke();
@@ -49,33 +53,30 @@ export const MainSection: React.FC = () => {
         <h1 className="Main__title">Categories</h1>
       </div>
 
-      {categories.length === 0
-        ? (
-          <div className="Main__categories Main__loader">
-            <JokeLoader />
-          </div>
-        )
-        : (
-          <>
-            <div className="Main__categories">
-              {categories.map(category => (
-                <Category
-                  key={category}
-                  category={category}
-                  onHandleClick={handleClick}
-                />
-              ))}
+      {categories.length === 0 ? (
+        <div className="Main__categories Main__loader">
+          <JokeLoader />
+        </div>
+      ) : (
+        <>
+          <div className="Main__categories">
+            {categories.map((category) => (
               <Category
-                key="random"
-                category="random"
-                onHandleClick={handleRandomClick}
+                key={category}
+                category={category}
+                onHandleClick={handleClick}
               />
-            </div>
+            ))}
+            <Category
+              key="random"
+              category="random"
+              onHandleClick={handleRandomClick}
+            />
+          </div>
 
-            <JokeSection joke={joke} isLoading={isLoading} />
-          </>
-        )
-      }
+          <JokeSection joke={joke} isLoading={isLoading} />
+        </>
+      )}
     </div>
   );
 };

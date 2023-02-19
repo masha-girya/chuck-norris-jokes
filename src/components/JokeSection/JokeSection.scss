@@ -15,16 +15,18 @@ $height-of-box: 162px;
 
     background-color: $main-color;
 
-    -webkit-box-shadow: 0px 100px 80px rgba(80, 76, 103, 0.07), 0px 0px 10.0172px rgba(80, 76, 103, 0.035);
-    box-shadow: 0px 100px 80px rgba(80, 76, 103, 0.07), 0px 0px 10.0172px rgba(80, 76, 103, 0.035);
+    -webkit-box-shadow: 0px 100px 80px rgba(80, 76, 103, 0.07),
+      0px 0px 10.0172px rgba(80, 76, 103, 0.035);
+    box-shadow: 0px 100px 80px rgba(80, 76, 103, 0.07),
+      0px 0px 10.0172px rgba(80, 76, 103, 0.035);
 
     color: white;
     font-size: 1.25rem;
     line-height: 150%;
-    letter-spacing: .1rem;
+    letter-spacing: 0.1rem;
 
     &::after {
-      content: "";
+      content: '';
 
       position: absolute;
       z-index: -1;
@@ -58,8 +60,8 @@ $height-of-box: 162px;
     }
 
     &:hover::after {
-      -webkit-animation: hover-chuck .75s linear 1;;
-      animation: hover-chuck .75s linear 1;
+      -webkit-animation: hover-chuck 0.75s linear 1;
+      animation: hover-chuck 0.75s linear 1;
     }
   }
 

@@ -5,13 +5,13 @@ $loader-color: $main-color;
   width: 60%;
   height: $height-of-loader;
   border-radius: 30px;
-  background-color: rgba(0,0,0,0.2);
+  background-color: rgba(0, 0, 0, 0.2);
   position: relative;
 
   margin: 0 auto;
 
   &::before {
-    content: "";
+    content: '';
 
     position: absolute;
 
@@ -22,17 +22,17 @@ $loader-color: $main-color;
     height: 100%;
     border-radius: 30px;
     animation: moving 1s ease-in-out infinite;
-   }
- }
+  }
+}
 
- @keyframes moving {
+@keyframes moving {
   50% {
-   width: 100%;
+    width: 100%;
   }
- 
+
   100% {
-   width: 0;
-   right: 0;
-   left: unset;
+    width: 0;
+    right: 0;
+    left: unset;
   }
- }
+}
