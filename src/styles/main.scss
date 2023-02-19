@@ -1,0 +1,26 @@
+@import './_variables';
+@import './_mixins';
+@import '../components/AppBar/AppBar.scss';
+@import '../components/MainSection/MainSection.scss';
+@import '../components/Category/Category.scss';
+@import '../components/JokeSection/JokeSection.scss';
+@import '../components/Loader/Loader.scss';
+@import '../components/LoaderJoke/LoaderJoke.scss';
+
+@font-face {
+  font-family: 'Raleway';
+  font-weight: normal;
+  font-size: 16px;
+  src: url(../fonts/Raleway-SemiBold.ttf);
+}
+
+@font-face {
+  font-family: 'Raleway';
+  font-weight: bold;
+  src: url(../fonts/Raleway-ExtraBold.ttf);
+}
+
+.main-container {
+  max-width: 1200px;
+  margin: 0 auto;
+}

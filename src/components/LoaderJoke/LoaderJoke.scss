@@ -1,0 +1,44 @@
+.Loader-joke {
+  display: flex;
+  justify-content: space-between;
+  width: 70px;
+  height: 70px;
+
+  &__dot {
+    width: 15px;
+    height: 15px;
+    border-radius: 50%;
+
+    background-color: #fff;
+
+    transform: scale(1);
+
+    animation-name: dots;
+    animation-timing-function: ease-in-out;
+    animation-duration: 1s;
+    animation-iteration-count: infinite;
+
+    &:nth-child(1) {
+      animation-delay: 0.2s;
+    }
+
+    &:nth-child(1) {
+      animation-delay: 0.3s;
+    }
+  }
+}
+
+@keyframes dots {
+  25% {
+    transform: scale(0.7);
+  }
+  50% {
+    transform: scale(0.5);
+  }
+  75% {
+    transform: scale(0.7);
+  }
+  100% {
+    transform: scale(1);
+  }
+}

@@ -1,0 +1,122 @@
+$height-of-box: 162px;
+
+.Joke {
+  margin-top: 10rem;
+
+  &__box {
+    position: relative;
+
+    max-width: 1120px;
+    min-height: $height-of-box;
+    height: max-content;
+    padding: 24px;
+
+    border-radius: 25px;
+
+    background-color: $main-color;
+
+    -webkit-box-shadow: 0px 100px 80px rgba(80, 76, 103, 0.07),
+      0px 0px 10.0172px rgba(80, 76, 103, 0.035);
+    box-shadow: 0px 100px 80px rgba(80, 76, 103, 0.07),
+      0px 0px 10.0172px rgba(80, 76, 103, 0.035);
+
+    color: white;
+    font-size: 1.25rem;
+    line-height: 150%;
+    letter-spacing: 0.1rem;
+
+    &::after {
+      content: '';
+
+      position: absolute;
+      z-index: -1;
+      top: -155px;
+      left: 83%;
+
+      width: 122px;
+      height: 258px;
+
+      background-image: url(../../images/chuck-norris.png);
+      background-size: contain;
+      background-repeat: no-repeat;
+
+      -webkit-transform: translateZ(0);
+      transform: translateZ(0);
+
+      @include onLargeTablet {
+        left: 70%;
+      }
+
+      @include onTablet {
+        left: 65%;
+        top: -130px;
+
+        width: 100px;
+      }
+
+      @include onPhone {
+        top: -130px;
+      }
+    }
+
+    &:hover::after {
+      -webkit-animation: hover-chuck 0.75s linear 1;
+      animation: hover-chuck 0.75s linear 1;
+    }
+  }
+
+  &__loader-box {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: $height-of-box;
+    height: 100%;
+  }
+
+  @include onTablet {
+    margin-top: 7rem;
+  }
+}
+
+@keyframes hover-chuck {
+  10% {
+    -webkit-transform: translateX(3px) rotate(2deg);
+    transform: translateX(3px) rotate(2deg);
+  }
+  20% {
+    -webkit-transform: translateX(-3px) rotate(-2deg);
+    transform: translateX(-3px) rotate(-2deg);
+  }
+  30% {
+    -webkit-transform: translateX(3px) rotate(2deg);
+    transform: translateX(3px) rotate(2deg);
+  }
+  40% {
+    -webkit-transform: translateX(-3px) rotate(-2deg);
+    transform: translateX(-3px) rotate(-2deg);
+  }
+  50% {
+    -webkit-transform: translateX(2px) rotate(1deg);
+    transform: translateX(2px) rotate(1deg);
+  }
+  60% {
+    -webkit-transform: translateX(-2px) rotate(-1deg);
+    transform: translateX(-2px) rotate(-1deg);
+  }
+  70% {
+    -webkit-transform: translateX(2px) rotate(1deg);
+    transform: translateX(2px) rotate(1deg);
+  }
+  80% {
+    -webkit-transform: translateX(-2px) rotate(-1deg);
+    transform: translateX(-2px) rotate(-1deg);
+  }
+  90% {
+    -webkit-transform: translateX(1px) rotate(0);
+    transform: translateX(1px) rotate(0);
+  }
+  100% {
+    -webkit-transform: translateX(-1px) rotate(0);
+    transform: translateX(-1px) rotate(0);
+  }
+}
