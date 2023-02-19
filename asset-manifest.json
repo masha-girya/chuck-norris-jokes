@@ -1,0 +1,17 @@
+{
+  "files": {
+    "main.css": "/chuck-norris-jokes/static/css/main.70049caa.css",
+    "main.js": "/chuck-norris-jokes/static/js/main.c6292b7d.js",
+    "static/media/Raleway-SemiBold.ttf": "/chuck-norris-jokes/static/media/Raleway-SemiBold.cc770b2afb65067aae51.ttf",
+    "static/media/Raleway-ExtraBold.ttf": "/chuck-norris-jokes/static/media/Raleway-ExtraBold.8b7015f87bd9859e1382.ttf",
+    "static/media/chuck-norris.png": "/chuck-norris-jokes/static/media/chuck-norris.600ef7d38d2d52f6dc15.png",
+    "static/media/logo.svg": "/chuck-norris-jokes/static/media/logo.77c9a2960e4f83721bb8fbdf765f9f87.svg",
+    "index.html": "/chuck-norris-jokes/index.html",
+    "main.70049caa.css.map": "/chuck-norris-jokes/static/css/main.70049caa.css.map",
+    "main.c6292b7d.js.map": "/chuck-norris-jokes/static/js/main.c6292b7d.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.70049caa.css",
+    "static/js/main.c6292b7d.js"
+  ]
+}
