@@ -15,6 +15,7 @@ export const Category: React.FC<Props> = ({
 }) => {
   return (
     <button
+      data-testid="cat"
       type="button"
       className={classNames('Category', {
         'Category--active': activeCategory === category,
