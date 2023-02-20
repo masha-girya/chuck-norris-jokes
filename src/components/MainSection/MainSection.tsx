@@ -6,7 +6,7 @@ import {
   getRandomJokeByCategory,
 } from '../../api/fetchData';
 import { Category } from '../Category';
-import { JokeLoader } from '../Loader';
+import { Loader } from '../Loader';
 import { JokeSection } from '../JokeSection';
 import './MainSection';
 import { Joke } from '../../types/Joke';
@@ -14,34 +14,33 @@ import { Joke } from '../../types/Joke';
 export const MainSection: React.FC = () => {
   const [categories, setCategories] = useState<string[]>([]);
   const [joke, setJoke] = useState(
-    JSON.parse(localStorage.getItem('joke') || ''),
+    JSON.parse(localStorage.getItem('joke') || JSON.stringify(''))
+  );
+  const [activeCategory, setActiveCategory] = useState(
+    JSON.parse(localStorage.getItem('category') || JSON.stringify(''))
   );
   const [isLoading, setIsLoading] = useState(false);
-  const [activeCategory, setActiveCategory] = useState(
-    JSON.parse(localStorage.getItem('category') || ''),
-  );
+  const [isPageLoading, setIsPageLoading] = useState(true);
 
   const loadCategories = () => {
     getCategories().then(setCategories);
   };
 
   useEffect(() => {
-    loadCategories();
+    try {
+      loadCategories();
+    } catch {
+      setCategories([]);
+    } finally {
+      setIsPageLoading(false);
+    }
   }, []);
 
   useEffect(() => {
     console.log(activeCategory);
   }, [activeCategory, joke]);
 
-  const handleClick = async (category: string) => {
-    handleAction(getRandomJokeByCategory(category), category);
-  };
-
-  const handleRandomClick = async () => {
-    handleAction(getRandomJoke(), 'random');
-  };
-
-  const handleAction = async (f: Promise<Joke>, category: string) => {
+  const handleAction = async(f: Promise<Joke>, category: string) => {
     try {
       setActiveCategory(category);
       setIsLoading(true);
@@ -59,19 +58,30 @@ export const MainSection: React.FC = () => {
     }
   };
 
+  const handleClick = async (category: string) => {
+    handleAction(getRandomJokeByCategory(category), category);
+  };
+
+  const handleRandomClick = async () => {
+    handleAction(getRandomJoke(), 'random');
+  };
+
   return (
     <div className="Main">
       <div className="Main__title-box">
         <h1 className="Main__title">Categories</h1>
       </div>
 
-      {categories.length === 0 ? (
-        <div className="Main__categories Main__loader">
-          <JokeLoader />
+      {isPageLoading ? (
+        <div
+          className="Main__categories Main__loader"
+          data-testid="main-loader"
+        >
+          <Loader />
         </div>
       ) : (
         <>
-          <div className="Main__categories">
+          <div className="Main__categories" data-testid="categories-list" >
             {categories.map((category) => (
               <Category
                 key={category}
