@@ -13,9 +13,13 @@ import { Joke } from '../../types/Joke';
 
 export const MainSection: React.FC = () => {
   const [categories, setCategories] = useState<string[]>([]);
-  const [joke, setJoke] = useState(JSON.parse(localStorage.getItem('joke') || ''));
+  const [joke, setJoke] = useState(
+    JSON.parse(localStorage.getItem('joke') || ''),
+  );
   const [isLoading, setIsLoading] = useState(false);
-  const [activeCategory, setActiveCategory] = useState(JSON.parse(localStorage.getItem('category') || ''));
+  const [activeCategory, setActiveCategory] = useState(
+    JSON.parse(localStorage.getItem('category') || ''),
+  );
 
   const loadCategories = () => {
     getCategories().then(setCategories);
@@ -37,7 +41,7 @@ export const MainSection: React.FC = () => {
     handleAction(getRandomJoke(), 'random');
   };
 
-  const handleAction = async(f: Promise<Joke>, category: string) => {
+  const handleAction = async (f: Promise<Joke>, category: string) => {
     try {
       setActiveCategory(category);
       setIsLoading(true);

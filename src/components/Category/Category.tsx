@@ -5,7 +5,7 @@ import './Category';
 interface Props {
   category: string;
   onHandleClick: (category: string) => void;
-  activeCategory: string,
+  activeCategory: string;
 }
 
 export const Category: React.FC<Props> = ({
@@ -17,8 +17,8 @@ export const Category: React.FC<Props> = ({
     <button
       type="button"
       className={classNames('Category', {
-        'Category--active' : activeCategory === category,
-      }) }
+        'Category--active': activeCategory === category,
+      })}
       onClick={() => onHandleClick(category)}
     >
       {category}
