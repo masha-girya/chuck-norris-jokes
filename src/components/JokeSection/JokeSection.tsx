@@ -18,7 +18,7 @@ export const JokeSection: React.FC<Props> = ({ joke, isLoading }) => {
         ) : joke.length > 0 ? (
           <p>{joke}</p>
         ) : (
-          <p>
+          <p className="Joke__joke-text">
             Choose a category below and grab Chuck<span>&#39;</span>s best joke!
           </p>
         )}

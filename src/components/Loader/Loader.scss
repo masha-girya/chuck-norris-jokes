@@ -1,26 +1,28 @@
-$height-of-loader: 4px;
-$loader-color: $main-color;
-
 .Loader {
-  width: 60%;
-  height: $height-of-loader;
-  border-radius: 30px;
-  background-color: rgba(0, 0, 0, 0.2);
   position: relative;
 
   margin: 0 auto;
+  width: 60%;
+  height: 4px;
+
+  border-radius: 30px;
+
+  background-color: rgba(0, 0, 0, 0.2);
 
   &::before {
     content: '';
 
     position: absolute;
-
-    background: $loader-color;
     top: 0;
     left: 0;
+
+    background: $main-color;
+
     width: 0%;
     height: 100%;
+
     border-radius: 30px;
+
     animation: moving 1s ease-in-out infinite;
   }
 }
