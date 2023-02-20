@@ -14,10 +14,10 @@ import { Joke } from '../../types/Joke';
 export const MainSection: React.FC = () => {
   const [categories, setCategories] = useState<string[]>([]);
   const [joke, setJoke] = useState(
-    JSON.parse(localStorage.getItem('joke') || JSON.stringify(''))
+    JSON.parse(localStorage.getItem('joke') || JSON.stringify('')),
   );
   const [activeCategory, setActiveCategory] = useState(
-    JSON.parse(localStorage.getItem('category') || JSON.stringify(''))
+    JSON.parse(localStorage.getItem('category') || JSON.stringify('')),
   );
   const [isLoading, setIsLoading] = useState(false);
   const [isPageLoading, setIsPageLoading] = useState(true);
@@ -40,7 +40,7 @@ export const MainSection: React.FC = () => {
     console.log(activeCategory);
   }, [activeCategory, joke]);
 
-  const handleAction = async(f: Promise<Joke>, category: string) => {
+  const handleAction = async (f: Promise<Joke>, category: string) => {
     try {
       setActiveCategory(category);
       setIsLoading(true);
@@ -81,7 +81,7 @@ export const MainSection: React.FC = () => {
         </div>
       ) : (
         <>
-          <div className="Main__categories" data-testid="categories-list" >
+          <div className="Main__categories" data-testid="categories-list">
             {categories.map((category) => (
               <Category
                 key={category}
