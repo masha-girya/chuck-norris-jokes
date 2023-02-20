@@ -3,8 +3,7 @@
   @include paddings;
 
   &__title-box {
-    display: flex;
-    justify-content: center;
+    @include alignment-x;
   }
 
   &__title {
@@ -14,14 +13,12 @@
   }
 
   &__categories-box {
-    display: flex;
-    justify-content: center;
+    @include alignment-x;
   }
 
   &__categories {
-    display: flex;
+    @include alignment-x;
     flex-wrap: wrap;
-    justify-content: center;
     gap: 1.25rem;
 
     margin-top: 3.125rem;
@@ -34,7 +31,6 @@
       justify-content: start;
 
       height: 125px;
-
       padding-left: 10px;
       margin-top: 1.5rem;
     }

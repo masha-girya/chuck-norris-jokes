@@ -1,5 +1,3 @@
-$height-of-box: 162px;
-
 .Joke {
   margin-top: 10rem;
 
@@ -7,7 +5,7 @@ $height-of-box: 162px;
     position: relative;
 
     max-width: 1120px;
-    min-height: $height-of-box;
+    min-height: 162px;
     height: max-content;
     padding: 24px;
 
@@ -63,14 +61,6 @@ $height-of-box: 162px;
       -webkit-animation: hover-chuck 0.75s linear 1;
       animation: hover-chuck 0.75s linear 1;
     }
-  }
-
-  &__loader-box {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    min-height: $height-of-box;
-    height: 100%;
   }
 
   @include onTablet {

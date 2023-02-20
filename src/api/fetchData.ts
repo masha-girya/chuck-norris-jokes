@@ -22,13 +22,13 @@ export function getCategories(): Promise<string[]> {
 export function getRandomJokeByCategory(category: string): Promise<Joke> {
   const fullURL = API_URL + '/random?category=' + category;
 
-  return wait(1000)
+  return wait(500)
     .then(() => fetch(fullURL))
     .then((response) => response.json());
 }
 
 export function getRandomJoke(): Promise<Joke> {
-  return wait(1000)
+  return wait(500)
     .then(() => fetch(`${API_URL}/random`))
     .then((response) => response.json());
 }

@@ -1,25 +1,25 @@
 .AppBar {
   height: 60px;
   width: 100%;
+
   background-color: $main-color;
 
   &__container {
-    display: flex;
+    @include alignment-y;
     justify-content: flex-start;
-    align-items: center;
-    @include paddings;
 
+    @include paddings;
     height: 100%;
   }
 
   &__logo-box {
-    display: flex;
+    @include alignment-y;
     gap: 10px;
-    align-items: center;
   }
 
   &__title {
     display: inline-block;
+
     font-size: inherit;
     color: #fff;
   }
