@@ -29,7 +29,7 @@ export const MainSection: React.FC = () => {
   useEffect(() => {
     return () => {
       setTimeout(() => {
-        localStorage.removeItem('joke'); 
+        localStorage.removeItem('joke');
         localStorage.removeItem('category');
       }, 1800000);
     };
@@ -79,36 +79,35 @@ export const MainSection: React.FC = () => {
         <h1 className="Main__title">Categories</h1>
       </div>
 
-      {isPageLoading && categories.length === 0
-        ? (
-          <div
-            className="Main__categories Main__loader"
-            data-testid="main-loader"
-          >
-            <Loader />
-          </div>
-        ) : (
-          <>
-            <div className="Main__categories" data-testid="categories-list">
-              {categories.map((category) => (
-                <Category
-                  key={category}
-                  category={category}
-                  onHandleClick={handleClick}
-                  activeCategory={activeCategory}
-                />
-              ))}
+      {isPageLoading && categories.length === 0 ? (
+        <div
+          className="Main__categories Main__loader"
+          data-testid="main-loader"
+        >
+          <Loader />
+        </div>
+      ) : (
+        <>
+          <div className="Main__categories" data-testid="categories-list">
+            {categories.map((category) => (
               <Category
-                key="random"
-                category="random"
-                onHandleClick={handleRandomClick}
+                key={category}
+                category={category}
+                onHandleClick={handleClick}
                 activeCategory={activeCategory}
               />
-            </div>
+            ))}
+            <Category
+              key="random"
+              category="random"
+              onHandleClick={handleRandomClick}
+              activeCategory={activeCategory}
+            />
+          </div>
 
-            <JokeSection joke={joke} isLoading={isLoading} />
-          </>
-        )}
+          <JokeSection joke={joke} isLoading={isLoading} />
+        </>
+      )}
     </div>
   );
 };
