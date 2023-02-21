@@ -47,7 +47,7 @@ export const MainSection: React.FC = () => {
     }
   }, []);
 
-  const handleAction = async (f: Promise<Joke>, category: string) => {
+  const handleAction = async(f: Promise<Joke>, category: string) => {
     try {
       setActiveCategory(category);
       setIsLoading(true);
@@ -65,11 +65,11 @@ export const MainSection: React.FC = () => {
     }
   };
 
-  const handleClick = async (category: string) => {
+  const handleClick = async(category: string) => {
     handleAction(getRandomJokeByCategory(category), category);
   };
 
-  const handleRandomClick = async () => {
+  const handleRandomClick = async() => {
     handleAction(getRandomJoke(), 'random');
   };
 
