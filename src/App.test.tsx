@@ -26,7 +26,7 @@ describe('Components rendering', () => {
 });
 
 describe('Fetch data', () => {
-  test('should fetch categories', async() => {
+  test('should fetch categories', async () => {
     const categories = await getCategories();
     expect(categories).toHaveLength(16);
   });
@@ -36,13 +36,13 @@ describe('Fetch data', () => {
     expect(categories).toEqual(categories.sort((a, b) => a.localeCompare(b)));
   });
 
-  test('should fetch joke by category', async() => {
+  test('should fetch joke by category', async () => {
     const joke = await getRandomJokeByCategory('dev');
 
     expect(joke).toHaveProperty('value');
   });
 
-  test('should fetch random joke', async() => {
+  test('should fetch random joke', async () => {
     const joke = await getRandomJoke();
 
     expect(joke).toHaveProperty('value');

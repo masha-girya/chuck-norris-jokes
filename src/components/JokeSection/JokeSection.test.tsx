@@ -1,10 +1,7 @@
 import React from 'react';
 import { render, screen, act, fireEvent } from '@testing-library/react';
 import { MainSection } from '../MainSection';
-import {
-  getCategories,
-  getRandomJoke,
-} from '../../api/fetchData';
+import { getCategories, getRandomJoke } from '../../api/fetchData';
 import { JokeSection } from '../JokeSection';
 
 describe('Joke', () => {
@@ -12,7 +9,7 @@ describe('Joke', () => {
     render(<MainSection />);
   });
 
-  test('should place text if the page is loading for the first time', async() => {
+  test('should place text if the page is loading for the first time', async () => {
     const element = render(<JokeSection joke="" isLoading={false} />);
 
     const text = element.getByTestId('before-joke-text');
@@ -24,7 +21,7 @@ describe('Joke', () => {
     expect(text).toBeInTheDocument();
   });
 
-  test('should not be text if joke is loaded', async() => {
+  test('should not be text if joke is loaded', async () => {
     const joke = await getRandomJoke();
     const element = render(<JokeSection joke={joke.value} isLoading={false} />);
 
@@ -33,7 +30,7 @@ describe('Joke', () => {
     expect(text).toBeNull();
   });
 
-  test('should show loader after clicking on category', async() => {
+  test('should show loader after clicking on category', async () => {
     getCategories().then(() => {
       const category = screen.getByText('dev');
 

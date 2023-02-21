@@ -8,14 +8,14 @@ describe('Category', () => {
     render(<MainSection />);
   });
 
-  test('should render all categories and random category as buttons', async() => {
+  test('should render all categories and random category as buttons', async () => {
     getCategories().then(() => {
       const button = screen.getAllByRole('button');
       expect(button).toHaveLength(17);
     });
   });
 
-  test('should be white by default', async() => {
+  test('should be white by default', async () => {
     getCategories().then(() => {
       const category = screen.getByText('dev');
 
@@ -23,7 +23,7 @@ describe('Category', () => {
     });
   });
 
-  test('should be blue color after choosing category', async() => {
+  test('should be blue color after choosing category', async () => {
     getCategories().then(() => {
       const category = screen.getByText('dev');
 

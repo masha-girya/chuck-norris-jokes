@@ -7,7 +7,7 @@ describe('Main Section', () => {
     render(<MainSection />);
   });
 
-  test('should be loader first', async() => {
+  test('should be loader first', async () => {
     const loader = screen.getByTestId('main-loader');
 
     expect(loader).toBeInTheDocument();
