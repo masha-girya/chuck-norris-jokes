@@ -10,6 +10,7 @@ Each joke loads from [API](https://api.chucknorris.io/#!)
 After loading joke is memorized to the local storage so if you accidentally closed the tab, don't worry, the joke remains but only for 30 minutes, so hurry to show it to your friends :)
 
 ## Technologies
+TypeScript, React, React Hooks, Jest, Sass.
 
 ## To run ant test the project locally
 
