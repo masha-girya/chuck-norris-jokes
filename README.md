@@ -2,6 +2,8 @@
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
+**[DEMO-LINK](https://masha-girya.github.io/chuck-norris-jokes);
+
 This app generates one random Chuck's joke. You can choose a category for which a joke will be generated or you can choose random category.
 Each joke loads from [API](https://api.chucknorris.io/#!)
 
