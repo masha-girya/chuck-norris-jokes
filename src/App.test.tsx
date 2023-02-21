@@ -39,7 +39,7 @@ describe('Fetch data', () => {
   });
 
   test('should fetch joke by category', async () => {
-    const joke = await getRandomJokeByCategory('sport');
+    const joke = await getRandomJokeByCategory('dev');
 
     expect(joke).toHaveProperty('value');
   });
@@ -71,7 +71,7 @@ describe('Category', () => {
       await getCategories();
     });
 
-    const category = await screen.getByText('sport');
+    const category = await screen.getByText('dev');
 
     expect(category).not.toHaveClass('Category--active');
   });
@@ -83,7 +83,7 @@ describe('Category', () => {
       await getCategories();
     });
 
-    const category = await screen.getByText('sport');
+    const category = await screen.getByText('dev');
 
     fireEvent.click(category);
 
@@ -120,7 +120,7 @@ describe('Joke', () => {
       await getCategories();
     });
 
-    const category = await screen.getByText('sport');
+    const category = await screen.getByText('dev');
 
     fireEvent.click(category);
 

@@ -27,18 +27,25 @@ export const MainSection: React.FC = () => {
   };
 
   useEffect(() => {
+    return () => {
+      setTimeout(() => {
+        localStorage.removeItem('joke'); 
+        localStorage.removeItem('category');
+      }, 1800000);
+    };
+  }, []);
+
+  useEffect(() => {
     try {
       loadCategories();
     } catch {
       setCategories([]);
     } finally {
-      setIsPageLoading(false);
+      setTimeout(() => {
+        setIsPageLoading(false);
+      }, 3000);
     }
   }, []);
-
-  useEffect(() => {
-    console.log(activeCategory);
-  }, [activeCategory, joke]);
 
   const handleAction = async (f: Promise<Joke>, category: string) => {
     try {
@@ -72,35 +79,36 @@ export const MainSection: React.FC = () => {
         <h1 className="Main__title">Categories</h1>
       </div>
 
-      {isPageLoading ? (
-        <div
-          className="Main__categories Main__loader"
-          data-testid="main-loader"
-        >
-          <Loader />
-        </div>
-      ) : (
-        <>
-          <div className="Main__categories" data-testid="categories-list">
-            {categories.map((category) => (
+      {isPageLoading && categories.length === 0
+        ? (
+          <div
+            className="Main__categories Main__loader"
+            data-testid="main-loader"
+          >
+            <Loader />
+          </div>
+        ) : (
+          <>
+            <div className="Main__categories" data-testid="categories-list">
+              {categories.map((category) => (
+                <Category
+                  key={category}
+                  category={category}
+                  onHandleClick={handleClick}
+                  activeCategory={activeCategory}
+                />
+              ))}
               <Category
-                key={category}
-                category={category}
-                onHandleClick={handleClick}
+                key="random"
+                category="random"
+                onHandleClick={handleRandomClick}
                 activeCategory={activeCategory}
               />
-            ))}
-            <Category
-              key="random"
-              category="random"
-              onHandleClick={handleRandomClick}
-              activeCategory={activeCategory}
-            />
-          </div>
+            </div>
 
-          <JokeSection joke={joke} isLoading={isLoading} />
-        </>
-      )}
+            <JokeSection joke={joke} isLoading={isLoading} />
+          </>
+        )}
     </div>
   );
 };
