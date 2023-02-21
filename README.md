@@ -7,7 +7,7 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 This app generates one random Chuck's joke. You can choose a category for which a joke will be generated or you can choose random category.
 Each joke loads from [API](https://api.chucknorris.io/#!)
 
-After loading joke is memorized to the local storage so if you accidentally closed the tab, don't worry, the joke remains but only for 30 minutes, so hurry to show it to your friends :)
+After loading joke is memorized to the session storage so if you accidentally reload the tab, don't worry, the joke remains, so you can show it to your friends :)
 
 ## Technologies
 

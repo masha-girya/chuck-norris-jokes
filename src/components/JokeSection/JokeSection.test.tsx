@@ -1,5 +1,5 @@
 import React from 'react';
-import { render, screen, act, fireEvent } from '@testing-library/react';
+import { render, screen, fireEvent } from '@testing-library/react';
 import { MainSection } from '../MainSection';
 import { getCategories, getRandomJoke } from '../../api/fetchData';
 import { JokeSection } from '../JokeSection';
@@ -13,10 +13,6 @@ describe('Joke', () => {
     const element = render(<JokeSection joke="" isLoading={false} />);
 
     const text = element.getByTestId('before-joke-text');
-
-    await act(() => {
-      localStorage.clear();
-    });
 
     expect(text).toBeInTheDocument();
   });

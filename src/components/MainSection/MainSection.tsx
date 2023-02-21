@@ -14,10 +14,10 @@ import { Joke } from '../../types/Joke';
 export const MainSection: React.FC = () => {
   const [categories, setCategories] = useState<string[]>([]);
   const [joke, setJoke] = useState(
-    JSON.parse(localStorage.getItem('joke') || JSON.stringify('')),
+    JSON.parse(sessionStorage.getItem('joke') || JSON.stringify('')),
   );
   const [activeCategory, setActiveCategory] = useState(
-    JSON.parse(localStorage.getItem('category') || JSON.stringify('')),
+    JSON.parse(sessionStorage.getItem('category') || JSON.stringify('')),
   );
   const [isLoading, setIsLoading] = useState(false);
   const [isPageLoading, setIsPageLoading] = useState(true);
@@ -25,15 +25,6 @@ export const MainSection: React.FC = () => {
   const loadCategories = () => {
     getCategories().then(setCategories);
   };
-
-  useEffect(() => {
-    return () => {
-      setTimeout(() => {
-        localStorage.removeItem('joke');
-        localStorage.removeItem('category');
-      }, 1800000);
-    };
-  }, []);
 
   useEffect(() => {
     try {
@@ -55,8 +46,8 @@ export const MainSection: React.FC = () => {
       const data = await f;
       setJoke(data.value);
 
-      localStorage.setItem('joke', JSON.stringify(data.value));
-      localStorage.setItem('category', JSON.stringify(category));
+      sessionStorage.setItem('joke', JSON.stringify(data.value));
+      sessionStorage.setItem('category', JSON.stringify(category));
     } catch {
       setJoke('Oops, try again');
       setActiveCategory('');
